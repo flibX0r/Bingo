@@ -1,0 +1,5 @@
+.vs/
+node_modules
+src/Bingo/obj
+src/Bingo/bin
+src/Bingo/wwwroot/

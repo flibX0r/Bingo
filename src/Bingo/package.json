@@ -1,0 +1,16 @@
+{
+	"name": "Bingo",
+	"version": "1.0.0",
+	"private": true,
+	"devDependencies": {
+		"grunt": "*",
+		"grunt-contrib-clean": "*",
+		"grunt-contrib-copy": "*",
+		"grunt-contrib-less": "*",
+		"grunt-contrib-uglify": "*",
+		"grunt-mkdir": "*",
+		"grunt-postcss": "*",
+		"autoprefixer": "*",
+		"cssnano": "*"
+	}
+}
