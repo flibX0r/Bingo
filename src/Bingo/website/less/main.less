@@ -4,15 +4,43 @@ body {
 	min-width: 320px;
 }
 
-h1 {
-	font-family: @roboto-con;
-	font-size: 30px;
-	font-weight: 700;
-	text-align: center;
-	margin: 15px;
+header {
+	background: @gray-base;
+	color: #fff;
+
+	margin-bottom: 10px;
+
+	h1 {
+		font-family: @roboto-con;
+		font-size: 30px;
+		font-weight: 300;
+		margin: 10px 0;
+
+		color: @brand-primary;
+
+		em {
+			color: #fff;
+			font-style: normal;
+		}
+	}
+
+	@media (@lmobile) {
+		margin-bottom: 5px;
+	}
 
 	@media (@gmobile) {
-		font-size: 40px;
+		margin-bottom: 20px;
+		h1 {
+			font-size: 40px;
+			margin: 15px 0;
+		}
+	}
+}
+
+@media (@lmobile) {
+	main > .container {
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 }
 
@@ -22,17 +50,19 @@ h1 {
 
 	td {
 		width: 20%;
-		padding: 4px;
+		padding: 2px;
 		height: 100px;
 		font: 14px/18px @roboto-con;
 
 		@media (@lmobile) {
+			padding: 1px;
 			height: 90px;
 			font-size: 12px;
 			line-height: 16px;
 		}
 
 		@media (@gmobile) {
+			padding: 4px;
 			height: 130px;
 			font-size: 20px;
 			line-height: 24px;
@@ -40,6 +70,8 @@ h1 {
 
 		@media (@gtablet) {
 			height: 160px;
+			font-size: 24px;
+			line-height: 30px;
 		}
 	}
 }
@@ -48,7 +80,7 @@ h1 {
 	width: 100%;
 	height:100%;
 
-	padding: 0 4px;
+	padding: 0 6px;
 
 	display: flex;
 	flex-flow: column nowrap;
@@ -77,5 +109,17 @@ h1 {
 		background-color: @gray-base;
 		border-color: @gray-darkerer;
 		color: #fff;
+	}
+
+	@media (@lmobile) {
+		padding: 0 3px;
+	}
+
+	@media (@gmobile) {
+		padding: 0 8px;
+	}
+
+	@media (@gtablet) {
+		padding: 0 10px;
 	}
 }
