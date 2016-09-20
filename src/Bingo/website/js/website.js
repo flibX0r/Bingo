@@ -1,11 +1,13 @@
 $(function () {
 
-	var Button = function (el, row, col, parent) {
-		this.$el = $(el);
-		this.state = this.$el.hasClass('active');
+	var Button = function (el, phrase, row, col, parent) {
+	    this.$el = $(el);
+	    this.state = this.$el.hasClass('active');
 		this.row = row;
 		this.col = col;
 		this.parent = parent;
+
+		this.$el.html(phrase);
 
 		this.debounceUpdateStatus = _.debounce(
 			_.bind(this.updateStatus,this),
@@ -30,7 +32,7 @@ $(function () {
 		}
 	};
 
-	var ButtonTable = function (el) {
+	var ButtonTable = function (el, tiles) {
 		this.$el = $(el);
 		this.$rows = this.$el.find('tr');
 		this.buttons = [];
@@ -39,7 +41,7 @@ $(function () {
 			var $cols = $(this.$rows[r]).find('.button');
 			this.buttons[r] = [];
 			for (var c = 0; c < 5; c++) {
-				this.buttons[r][c] = new Button($cols[c], r, c, this);
+				this.buttons[r][c] = new Button($cols[c], tiles[r][c], r, c, this);
 			}
 		}
 	};
@@ -50,8 +52,8 @@ $(function () {
 		}
 	}
 
-
-
-	var table = new ButtonTable('.button-table');
-
+	$.getJSON('/api/get')
+     .done(function (data) {
+         var table = new ButtonTable('.button-table', data.tiles);
+     });
 });
